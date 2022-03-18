@@ -48,8 +48,8 @@ class AssesmentApplicationTests {
 	
 	@Test
 	public void testTwoElements() {
-		int addition = service.Add("1,2");
-		Assertions.assertEquals(3, addition);
+		int addition = service.Add("1,");
+		Assertions.assertEquals(1, addition);
 		
 		addition = service.Add("5,2");
 		Assertions.assertEquals(7, addition);
@@ -62,6 +62,15 @@ class AssesmentApplicationTests {
 	public void testForUknownNumbersOfElement() {
 		int addition = service.Add("1,2,3");
 		Assertions.assertEquals(6, addition);
+		
+		addition = service.Add("1,2,");
+		Assertions.assertEquals(3, addition);
+		
+		addition = service.Add("10,20");
+		Assertions.assertEquals(30, addition);
+		
+		addition = service.Add("100,201");
+		Assertions.assertEquals(301, addition);
 	}
 
 }
