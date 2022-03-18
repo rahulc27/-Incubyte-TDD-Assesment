@@ -72,5 +72,11 @@ class AssesmentApplicationTests {
 		addition = service.Add("100,201");
 		Assertions.assertEquals(301, addition);
 	}
+	
+	@Test
+	public void testNewLineininput() throws Exception{
+		int addition = service.Add("1\n2,3");
+		Assertions.assertEquals(6, addition);
+	}
 
 }
