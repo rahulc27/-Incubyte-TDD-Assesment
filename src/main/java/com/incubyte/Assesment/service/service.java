@@ -1,5 +1,8 @@
 package com.incubyte.Assesment.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
@@ -28,10 +31,21 @@ public class service {
 		String[] numbersList = numbers.split(delimiter);
 		
 		int ans = 0;
+		boolean isnegative = false;
+		List<Integer> negativeNumbers = new ArrayList<>();
+		
 		//Traverse numbersList array and add integer value of each element to the "ans" variable
 		for (String num: numbersList) {
-			ans = ans + Integer.parseInt(num.trim());
+			int currNum = Integer.parseInt(num.trim());
+			ans = ans + currNum;
+			if(currNum < 0) {
+				isnegative = true;
+				negativeNumbers.add(currNum);
+			}
 		}
+		
+		if (isnegative)
+			throw new Exception("negatives not allowed : "+ negativeNumbers.toString());
 		
 		return ans;
 	}

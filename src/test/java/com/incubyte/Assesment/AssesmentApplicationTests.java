@@ -101,7 +101,16 @@ class AssesmentApplicationTests {
 	@Test
 	public void testNegativenumbers() throws Exception {
 		Exception exception = Assertions.assertThrows(Exception.class, () -> service.Add("//;\n-11;2") );
-		Assertions.assertEquals("negatives not allowed : -11", exception.getMessage());
+		Assertions.assertEquals("negatives not allowed : [-11]", exception.getMessage());
+		
+		exception = Assertions.assertThrows(Exception.class, () -> service.Add("//;\n-11;-2") );
+		Assertions.assertEquals("negatives not allowed : [-11, -2]", exception.getMessage());
+		
+		exception = Assertions.assertThrows(Exception.class, () -> service.Add("-11,-2") );
+		Assertions.assertEquals("negatives not allowed : [-11, -2]", exception.getMessage());
+		
+		exception = Assertions.assertThrows(Exception.class, () -> service.Add("-11") );
+		Assertions.assertEquals("negatives not allowed : [-11]", exception.getMessage());
 	}
 
 }
