@@ -74,7 +74,7 @@ class AssesmentApplicationTests {
 	}
 	
 	@Test
-	public void testNewLineininput() throws Exception{
+	public void testNewLineininput(){
 		int addition = service.Add("1\n2,3");
 		Assertions.assertEquals(6, addition);
 		
@@ -83,6 +83,13 @@ class AssesmentApplicationTests {
 		
 		addition = service.Add("1\n 2,3\n5, 202");
 		Assertions.assertEquals(213, addition);
+	}
+	
+	@Test
+	public void testDelimiter(){
+		int addition = service.Add("//;\\n1;2");
+		Assertions.assertEquals(3, addition);
+		
 	}
 
 }
