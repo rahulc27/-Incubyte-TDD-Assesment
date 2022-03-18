@@ -45,5 +45,11 @@ class AssesmentApplicationTests {
 		addition = service.Add("200");
 		Assertions.assertEquals(200, addition);
 	}
+	
+	@Test
+	public void testTwoElements() {
+		int addition = service.Add("1,2");
+		Assertions.assertEquals(3, addition);
+	}
 
 }
