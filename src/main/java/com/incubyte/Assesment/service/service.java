@@ -6,7 +6,10 @@ import org.springframework.stereotype.Service;
 public class service {
 	
 	public int Add(String numbers) {
-		return 0;
+		if (numbers.trim().length() == 0)
+			return 0;
+		
+		return Integer.parseInt(numbers);
 	}
 
 }
