@@ -50,6 +50,12 @@ class AssesmentApplicationTests {
 	public void testTwoElements() {
 		int addition = service.Add("1,2");
 		Assertions.assertEquals(3, addition);
+		
+		addition = service.Add("5,2");
+		Assertions.assertEquals(7, addition);
+		
+		addition = service.Add("10,20");
+		Assertions.assertEquals(30, addition);
 	}
 
 }
