@@ -20,7 +20,7 @@ class AssesmentApplicationTests {
 	}
 	
 	@Test
-	public void testEmptyString() {
+	public void testEmptyString() throws Exception{
 		int addition = service.Add("");
 		Assertions.assertEquals(0, addition);
 		
@@ -32,7 +32,7 @@ class AssesmentApplicationTests {
 	}
 	
 	@Test
-	public void testSingleElement() {
+	public void testSingleElement() throws Exception {
 		int addition = service.Add("1");
 		Assertions.assertEquals(1, addition);
 		
@@ -47,7 +47,7 @@ class AssesmentApplicationTests {
 	}
 	
 	@Test
-	public void testTwoElements() {
+	public void testTwoElements() throws Exception{
 		int addition = service.Add("1,");
 		Assertions.assertEquals(1, addition);
 		
@@ -59,7 +59,7 @@ class AssesmentApplicationTests {
 	}
 	
 	@Test
-	public void testForUknownNumbersOfElement() {
+	public void testForUknownNumbersOfElement() throws Exception{
 		int addition = service.Add("1,2,3");
 		Assertions.assertEquals(6, addition);
 		
@@ -74,7 +74,7 @@ class AssesmentApplicationTests {
 	}
 	
 	@Test
-	public void testNewLineininput(){
+	public void testNewLineininput() throws Exception{
 		int addition = service.Add("1\n2,3");
 		Assertions.assertEquals(6, addition);
 		
@@ -86,7 +86,7 @@ class AssesmentApplicationTests {
 	}
 	
 	@Test
-	public void testDelimiter(){
+	public void testDelimiter() throws Exception{
 		int addition = service.Add("//;\n1;2");
 		Assertions.assertEquals(3, addition);
 		
@@ -96,6 +96,12 @@ class AssesmentApplicationTests {
 		addition = service.Add("//;\n");
 		Assertions.assertEquals(0, addition);
 		
+	}
+	
+	@Test
+	public void testNegativenumbers() throws Exception {
+		Exception exception = Assertions.assertThrows(Exception.class, () -> service.Add("//;\n-11;2") );
+		Assertions.assertEquals("negatives not allowed : -11", exception.getMessage());
 	}
 
 }

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service(value = "service")
 public class service {
 	
-	public int Add(String numbers) {
+	public int Add(String numbers) throws Exception {
 		
 		String delimiter = ",";
 		
