@@ -87,8 +87,14 @@ class AssesmentApplicationTests {
 	
 	@Test
 	public void testDelimiter(){
-		int addition = service.Add("//;\\n1;2");
+		int addition = service.Add("//;\n1;2");
 		Assertions.assertEquals(3, addition);
+		
+		addition = service.Add("//;\n1");
+		Assertions.assertEquals(1, addition);
+		
+		addition = service.Add("//;\n");
+		Assertions.assertEquals(0, addition);
 		
 	}
 
