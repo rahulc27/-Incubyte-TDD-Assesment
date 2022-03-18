@@ -20,11 +20,15 @@ class AssesmentApplicationTests {
 	}
 	
 	@Test
-	public void testForEmptyString() {
+	public void testEmptyString() {
 		int addition = service.Add("");
 		Assertions.assertEquals(0, addition);
-		
 	}
 	
+	@Test
+	public void testSingleElemant() {
+		int addition = service.Add("1");
+		Assertions.assertEquals(1, addition);
+	}
 
 }

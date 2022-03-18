@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 public class service {
 	
 	public int Add(String numbers) {
-		return (Integer) null;
+		return 0;
 	}
 
 }
