@@ -57,5 +57,11 @@ class AssesmentApplicationTests {
 		addition = service.Add("10,20");
 		Assertions.assertEquals(30, addition);
 	}
+	
+	@Test
+	public void testForUknownNumbersOfElement() {
+		int addition = service.Add("1,2,3");
+		Assertions.assertEquals(6, addition);
+	}
 
 }
